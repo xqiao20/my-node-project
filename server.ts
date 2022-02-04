@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-mongoose.connect("mongodb+srv://giuseppi:<supersecretpassword>@cluster0.mobx9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://giuseppi:supersecretpassword@cluster0.mobx9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 import bodyParser from "body-parser";
 import UserController from "./controllers/UserController";
