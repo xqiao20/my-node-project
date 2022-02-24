@@ -20,8 +20,8 @@ export default class MessageDao implements MessageDaoI{
         return await  MessageModel.find({to: uid}).populate("to").exec();
     }
 
-    async userMessagesUser(uidA: string, uidB: string, message: string): Promise<any> {
-        return await MessageModel.create({message: message, from: uidA, to: uidB});
+    async userMessagesUser(uidA: string, uidB: string, message: Message): Promise<any> {
+        return await MessageModel.create({...message, from: uidA, to: uidB});
     }
 
     async deleteMessage(mid: string): Promise<any> {
