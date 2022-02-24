@@ -11,7 +11,7 @@ export default class TuitController implements TuitControllerI {
         this.app.get('/api/tuits', this.findAllTuits);
         this.app.get('/api/tuits/:tuitid', this.findTuitById);
         this.app.get('/api/users/:userid/tuits', this.findTuitsByUser);
-        this.app.post('/api/tuits', this.createTuit);
+        this.app.post('/api/users/:userid/tuits', this.createTuitByUser);
         this.app.delete('/api/tuits/:tuitid', this.deleteTuit);
         this.app.put('/api/tuits/:tuitid', this.updateTuit);
     }
@@ -27,9 +27,10 @@ export default class TuitController implements TuitControllerI {
         this.tuitDao.findTuitsByUser(req.params.userid)
             .then(tuit => res.json(tuit));
 
-    createTuit = (req: Request, res: Response) =>
-        this.tuitDao.createTuit(req.body)
+    createTuitByUser = (req: Request, res: Response) =>
+        this.tuitDao.createTuitByUser(req.params.userid, req.body)
             .then(tuit => res.json(tuit));
+
     deleteTuit = (req: Request, res: Response) =>
         this.tuitDao.deleteTuit(req.params.tuitid)
             .then(status => res.json(status));

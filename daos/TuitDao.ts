@@ -13,8 +13,8 @@ export default class TuitDao implements TuitDaoI {
     async findTuitById(tuitId: string): Promise<Tuit> {
         return await TuitModel.findById(tuitId);
     }
-    async createTuit(tuit: Tuit): Promise<void> {
-        return await TuitModel.create(tuit);
+    async createTuitByUser(userId: String, tuit: Tuit): Promise<void> {
+        return await TuitModel.create({...tuit, postedBy: userId});
     }
     async deleteTuit(tuitId: string):  Promise<any> {
         return await TuitModel.deleteOne({_id: tuitId});
