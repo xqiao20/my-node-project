@@ -53,7 +53,7 @@ export default class BookmarkDao implements BookmarkDaoI{
      * database
      */
     async findAllTuitsBookmarkedByUser(uid: string): Promise<Bookmark[]> {
-        return await BookmarkModel.find({bookmarkedBy:uid}).populate("bookmarkedBy").exec();
+        return await BookmarkModel.find({bookmarkedBy:uid}).populate("bookmarkedTuit").exec();
     }
 
     /**

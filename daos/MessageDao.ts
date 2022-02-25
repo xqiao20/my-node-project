@@ -50,7 +50,7 @@ export default class MessageDao implements MessageDaoI{
      * database
      */
     async findAllSendFromMessages(uid: string): Promise<Message[]> {
-        return await MessageModel.find({from: uid}).populate("from").exec();
+        return await MessageModel.find({from: uid}).populate("to").exec();
     }
 
     /**
@@ -60,7 +60,7 @@ export default class MessageDao implements MessageDaoI{
      * database
      */
     async findAllSendToMessages(uid: string): Promise<Message[]> {
-        return await  MessageModel.find({to: uid}).populate("to").exec();
+        return await  MessageModel.find({to: uid}).populate("from").exec();
     }
 
 

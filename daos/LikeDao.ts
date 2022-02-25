@@ -43,7 +43,7 @@ export default class LikeDao implements LikeDaoI{
      * database
      */
     async findAllTuitsLikedByUser(uid: string): Promise<Like[]> {
-        return await LikeModel.find({likeBy: uid}).populate("likedBy").exec();
+        return await LikeModel.find({likeBy: uid}).populate("tuit").exec();
     }
 
     /**
@@ -53,7 +53,7 @@ export default class LikeDao implements LikeDaoI{
      * database
      */
     async findAllUsersLikedThatTuit(tid: string): Promise<Like[]> {
-        return await LikeModel.find({tuit: tid}).populate("tuit").exec();
+        return await LikeModel.find({tuit: tid}).populate("likedBy").exec();
     }
 
     /**
