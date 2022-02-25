@@ -5,8 +5,7 @@
 import BookmarkDaoI from "../interfaces/BookmarkDaoI";
 import Bookmark from "../models/Bookmark";
 import BookmarkModel from "../mongoose/BookmarkModel";
-import bookmark from "../models/bookmark";
-import bookmarkModel from "../mongoose/bookmarkModel";
+
 
 /**
  * @class BookmarkDao Implements Data Access Object managing data storage
